@@ -28,7 +28,7 @@ function getCarts(page){
                     <td>${new Date(cart.date).toLocaleDateString()}</td>
                     <td>${cart.products.length}</td>
                     <td>
-                        <button type="button" class="btn btn-outline-primary" onclick="showInfoCart('${cart.id}')">View</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="showInfoCart('${cart.id}')"><i class="fa-solid fa-eye"></i></button>
                     </td>
                 </tr>
             `

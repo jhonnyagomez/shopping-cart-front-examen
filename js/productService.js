@@ -19,6 +19,7 @@ function getProducts(){
      .then((response) => {
          if(response.status == 200){
                  let listProducts = `
+                 <button type="button" class="btn btn-outline-success" onclick="addProduct()"><i class="fa-solid fa-user-plus"></i></button>
                      <table class="table">
                          <thead>
                              <tr>
@@ -41,7 +42,7 @@ function getProducts(){
                              <td>${product.category}</td>
                              <td><img src="${product.image}" class="img-thumbnail" alt="Imagen del producto"></td>
                              <td>
-                                <button type="button" class="btn btn-outline-primary" onclick="showInfoProduct('${product.id}')">View</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="showInfoProduct('${product.id}')"><i class="fa-solid fa-eye"></i></button>
                             </td>
                          </tr>
                          `)

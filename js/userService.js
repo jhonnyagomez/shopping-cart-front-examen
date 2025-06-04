@@ -41,7 +41,7 @@ function getUsers(){
                             <td>${user.username}</td>
                             <td>${user.phone}</td>
                             <td>
-                                <button type="button" class="btn btn-outline-primary" onclick="showInfoUser('${user.id}')">View</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="showInfoUser('${user.id}')"><i class="fa-solid fa-eye"></i></button>
                             </td>
                         </tr>
                         `)
