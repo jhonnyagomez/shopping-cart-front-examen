@@ -1,38 +1,4 @@
 # shopping-cart-front-examen
 Examen final Jhonny Gomez 191794 Jaider Ovallos 192271
-Examen Final Descripción: Se creo un E-commerce donde el usuario puede logiarse y al entrar se encuentra con un menu donde tiene las siguientes opciones:Incio, Usuario, Producto, carro de compras y salir. Al entrar a usario se muestra una lista de nombres con su informacion personal proporcionada al conectarla con la api Fake Store Api, al entrar a producto obtendra un listado de productos con su titulo y precio, donde tambien fue obtenida por la api. Tambien tendra un carrito de compras donde el usuario podra comprar el producto que desea.Ademas, se agrego una opcion donde podra agregar usuario, producto y agregar una compra. luego se agrego un token para validar la autenticacion para poder acceder los servicios del E-commerce.Tambien se agrego iconos al menu para resaltar y dar estetica a la pagina. Que se mostrara en las siguientes imagenes: 
+Examen Final Descripción: Se creo un E-commerce donde el usuario puede logiarse y al entrar se encuentra con un menu donde tiene las siguientes opciones:Incio, Usuario, Producto, carro de compras y salir. Al entrar a usario se muestra una lista de nombres con su informacion personal proporcionada al conectarla con la api Fake Store Api, al entrar a producto obtendra un listado de productos con su titulo y precio, donde tambien fue obtenida por la api. Tambien tendra un carrito de compras donde el usuario podra comprar el producto que desea.Ademas, se agrego una opcion donde podra agregar usuario, producto y agregar una compra. luego se agrego un token para validar la autenticacion para poder acceder los servicios del E-commerce.Tambien se agrego iconos al menu para resaltar y dar estetica a la pagina. Y para finalizar la opcion de salir que lo redirige al login de la pagina.  Que se mostrara en las siguientes imagenes:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Y para finalizar la opcion de salir que lo redirige al login de la pagina
