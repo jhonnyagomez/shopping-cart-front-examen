@@ -19,7 +19,7 @@ function getProducts(){
      .then((response) => {
          if(response.status == 200){
                  let listProducts = `
-                 <button type="button" class="btn btn-outline-success" onclick="addProduct()"><i class="fa-solid fa-user-plus"></i></button>
+                 <button type="button" class="btn btn-outline-success" onclick="addProduct()"><i class="fa-regular fa-square-plus" style="color: #00ad42;"></i></button>
                      <table class="table">
                          <thead>
                              <tr>
@@ -114,4 +114,82 @@ function showModalProduct(product){
 
     const modal = new bootstrap.Modal(document.getElementById('modalProduct'))
     modal.show()
+}
+
+function addProduct(){
+  const modalProduct = `
+    <div class="modal fade" id="modalProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product <i class="fa-solid fa-boxes-stacked" style="color: #00ad42;"></i></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="card">
+              <div class="card-body">
+                <form id="formAddProduct">
+                  <div class="mb-3">
+                    <label for="tittle" class="form-label">Tittle</label>
+                    <input type="text" class="form-control" id="tittle" placeholder="Tittle" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" class="form-control" id="price" placeholder="Price" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <input type="text" class="form-control" id="category" placeholder="Category" required>
+                  </div>
+                  <div class="mb-3 text-center">
+                    <button type="button" class="btn btn-success" onclick="saveProduct()">
+                      Save <i class="fa-solid fa-floppy-disk"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+  document.getElementById('showModal').innerHTML = modalProduct
+  const modal = new bootstrap.Modal(document.getElementById('modalProduct'))
+  modal.show()
+}
+
+function saveProduct(){
+  const form = document.getElementById('formAddProduct')
+  if(form.checkValidity()){
+    const productData = {
+      tittle: document.getElementById('tittle').value,
+      price: document.getElementById('price').value,
+      category: document.getElementById('category').value,
+      description: document.getElementById('description').value
+    }
+
+    fetch("https://fakestoreapi.com/products", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(productData)
+    })
+    .then(res => res.json())
+    .then(data => {
+      const modal = bootstrap.Modal.getInstance(document.getElementById('modalProduct'))
+      modal.hide()
+      getProducts()
+    })
+    .catch(error => {
+      console.error("Error al crear producto:", error)
+      alert("No se pudo crear el producto.")
+    })
+  } else {
+    form.reportValidity()
+  }
 }
