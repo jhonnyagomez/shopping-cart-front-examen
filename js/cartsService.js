@@ -9,6 +9,7 @@ function getCarts(page){
     .then(result => result.json())
     .then(data => {
         let listCarts = `
+            <button type="button" class="btn btn-outline-success" onclick="addCart()"><i class="fa-solid fa-cart-plus" style="color: #00ad14;"></i></button>
             <table class="table">
                 <thead>
                     <tr>
@@ -112,3 +113,87 @@ function showModalCart(cart, products){
     const modal = new bootstrap.Modal(document.getElementById('modalCart'))
     modal.show()
 }
+
+function addCart(){
+    const modalCart = `
+      <div class="modal fade" id="modalCart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Add Cart <i class="fa-solid fa-cart-plus" style="color: #00ad14;"></i></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="card">
+                <div class="card-body">
+                  <form id="formAddCart">
+                    <div class="mb-3">
+                      <label for="userId" class="form-label">User Id</label>
+                      <input type="text" class="form-control" id="userId" placeholder="User Id" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="date" class="form-label">Date</label>
+                      <input type="date" class="form-control" id="date" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="productId" class="form-label">Product Id</label>
+                      <input type="text" class="form-control" id="productId" placeholder="Product Id" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="quantity" class="form-label">Quantity</label>
+                      <input type="text" class="form-control" id="quantity" placeholder="Quantity" required>
+                    </div>
+                    <div class="mb-3 text-center">
+                      <button type="button" class="btn btn-success" onclick="saveCart()">
+                        Save <i class="fa-solid fa-floppy-disk"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+    document.getElementById('showModal').innerHTML = modalCart
+    const modal = new bootstrap.Modal(document.getElementById('modalCart'))
+    modal.show()
+  }
+  
+  function saveCart(){
+    const form = document.getElementById('formAddCart')
+    if(form.checkValidity()){
+      const cartData = {
+        userId: document.getElementById('userId').value,
+        date: document.getElementById('date').value,
+        products: {
+          productId: document.getElementById('productId').value,
+          quantity: document.getElementById('quantity').value
+        }
+      }
+  
+      fetch("https://fakestoreapi.com/carts", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(cartData)
+      })
+      .then(res => res.json())
+      .then(data => {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('modalCart'))
+        modal.hide()
+        getCarts()
+      })
+      .catch(error => {
+        console.error("Error al crear el cart:", error)
+        alert("No se pudo crear el cart.")
+      })
+    } else {
+      form.reportValidity()
+    }
+  }
