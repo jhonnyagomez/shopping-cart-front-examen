@@ -7,6 +7,15 @@ Examen Final Descripción: Se creo un E-commerce donde el usuario puede logiarse
 ![image](https://github.com/user-attachments/assets/367f956b-ebfa-4e1a-86a8-2d66db277eb5)
 ![image](https://github.com/user-attachments/assets/aba2c7d6-7599-427e-9a33-2c39ed2dbeb2)
 ![image](https://github.com/user-attachments/assets/e8d8b00d-a550-4b3d-93fe-8d7e44e60971)
+![image](https://github.com/user-attachments/assets/66712d4e-63c1-4d8a-8c1d-d9ed6cb4aac2)
+![image](https://github.com/user-attachments/assets/1b25e9dc-2303-4eda-ba83-df0f7883cb48)
+![image](https://github.com/user-attachments/assets/eb8ed86f-6e13-43a5-b1c2-c2e5378fba4f)
+![image](https://github.com/user-attachments/assets/396f1b6d-2a53-4921-85cb-3c566b3664d2)
+
+
+
+
+
 
 
 
